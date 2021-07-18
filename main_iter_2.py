@@ -9,7 +9,6 @@ import time
 
 import module_particle_diff as particle_m
 import module_2Dplotter_diff_2 as plotter2D
-import thread
 def plotdata(plots):
   plots.Plot()
 
@@ -38,7 +37,7 @@ def main(argv):
   limits3 = [[0, 100],[0,100]]
 
   
-  outname = "outfile22.txt"
+  outname = "outfile.txt"
   
   f = open(outname, "w")
   f.close()
@@ -48,9 +47,7 @@ def main(argv):
   vel_to_sim = np.concatenate((vel_to_sim , np.arange(0.01, 0.1, 0.01)))
   vel_to_sim = np.concatenate((vel_to_sim , np.arange(0.1, 1, 0.1)))
   vel_to_sim = np.concatenate((vel_to_sim , np.arange(1, 9, 0.2)))
-  
-  # np.concatenate(vel_to_sim, np.arange(0.1, 4, 0.1))
-  
+    
   print vel_to_sim
   
   for vel in vel_to_sim:
@@ -67,21 +64,12 @@ def main(argv):
 
     plots = plotter2D.plot2D(particles, limits3)
 
-  #  thread.start_new_thread( plotdata, (plots,) )
 
-   # plots.Update(particles_list, 0)
 
     for i in range(1, 2000): 
       dt = 1
       for item in (particles_list):
        item.Move(dt, limits)#PLK-1 new
-      # item.Move(0.5/0.23, dt, limits)     #PLK-1
-      # item.Move(4.31, dt, limits)    #fast MEX5
-      #  item.Move(0.035/0.068, dt, limits) #slow MEX5
-    
-   #   futures = [executor.submit(try_multiple_operations, group) 
-   #          for group in grouper(particles/1000, particles_list)]
-   #   concurrent.futures.wait(futures)
 
       plots.Update(particles_list, i*dt)
       if(i>5 and plots.D_std<plots.D*0.02): 

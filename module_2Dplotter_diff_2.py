@@ -26,20 +26,13 @@ class plot2D():
 
     self.ax1 = fig.add_subplot(1,1,1)
     self.ax2 = fig1.add_subplot(1,1,1)
-    # self.ax3 = fig2.add_subplot(1,1,1)
     fig2 = plt.figure()
 
-    # fig1 = plt.figure()
-    # fig1 = plt.figure()
-    # self.ax2 = fig1.add_subplot(1,1,1)
-    # self.ax2 = fig1.add_subplot(1,1,1)
+
     
-    # self.Plot()
     plt.grid(True)
     plt.subplots_adjust(hspace = 1,wspace = 0.6)
     
-    # animate()
-    # Description: Every 200 ms, get speed, steering angle, and displacement estimate and update dynamic graph
 
   def Update(self, particles, t):
 

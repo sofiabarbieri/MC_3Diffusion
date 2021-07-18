@@ -32,7 +32,6 @@ class particle:
     
   def Shuffle(self, limits):
     
-    #the shuffling is done according to a fixed initial percentage
     
     
     x = random.uniform(limits[0][0], limits[1][0])
